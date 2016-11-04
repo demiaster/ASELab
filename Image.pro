@@ -7,3 +7,6 @@ HEADERS += $$PWD/include/Image.h
 INCLUDEPATH += $$PWD/include
 
 OTHER_FILES += $$PWD/README.md
+
+QMAKE_CXXFLAGS += $$system(Magick++-config  --cppflags)
+LIBS += $$system(Magick++-config  --libs)

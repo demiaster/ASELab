@@ -1,4 +1,5 @@
 #include "Image.h"
+#include <Magick++.h>
 
 Image::Image(size_t _width, size_t _height, size_t _depth)
 {
@@ -34,5 +35,7 @@ void Image::clearScreen(unsigned char _r,
 
 bool Image::save(const std::string &_fname) const
 {
-
+    Magick::Image output(m_width, m_height, "RGB", Magick::CharPixel, m_data.get());
+    output.depth(16);
+    output.write(_fname.c_str());
 }
